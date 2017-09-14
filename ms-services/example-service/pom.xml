@@ -16,5 +16,10 @@
     <artifactId>example-service</artifactId>
     <packaging>jar</packaging>
 
+    <build>
+        <plugins>
+            <plugin><artifactId>maven-shade-plugin</artifactId> <groupId>org.apache.maven.plugins</groupId></plugin>
+        </plugins>
+    </build>
 
 </project>
