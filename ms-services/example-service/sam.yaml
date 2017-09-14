@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Example of lambda-service (and http API) written with Kotlin & Spring with the aws-serverless-java-container library
+Resources:
+  ExampleServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: net.ms.ExampleServiceLambda::handleRequest
+      Runtime: java8
+      CodeUri: target/example-service-1.0-SNAPSHOT.jar
+      MemorySize: 512
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 20
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
+
+Outputs:
+  ExampleServiceApi:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/example'
+    Export:
+      Name: ExampleService
