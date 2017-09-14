@@ -1,26 +1,26 @@
 package net.ms
 
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import org.springframework.web.servlet.config.annotation.EnableWebMvc
 
 
 @RestController
-@RequestMapping("/bulk-indexing")
+@EnableWebMvc
 class BulkIndexingController {
 
-    @RequestMapping("")
-    fun status(): String {
-        return "alive"
-    }
-
-    @PostMapping("/check")
+    @RequestMapping(path = arrayOf("/bulk-indexing/check"), method = arrayOf(RequestMethod.POST))
     fun check(@RequestBody response: CheckResponse): CheckResult {
-        return CheckResult("ok", listOf(
+        return CheckResult("fail", listOf(
                 Msg(l = "inf", obj = response.s3BucketURL, msg = "The bucket do not exists / or access for the bucket wasn't provided."),
                 Msg(l = "wrn", obj = "file",               msg = "Cannot be read."),
                 Msg(l = "err", obj = "metadata-file",      msg = "Wrong format.")
+        ))
+    }
+
+    @RequestMapping(path = arrayOf("/bulk-indexing/start"), method = arrayOf(RequestMethod.POST))
+    fun start(@RequestBody response: CheckResponse): CheckResult {
+        return CheckResult("ok", listOf(
+                Msg(l = "inf", obj = "All checks passed", msg = "ready to start.")
         ))
     }
 
