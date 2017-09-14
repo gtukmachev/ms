@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>ms</artifactId>
+        <groupId>net.ms</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <description>
+        This module is implementing http server for your endpoints (Lambdas) to launch your application locally.
+    </description>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ms-http</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency><groupId>org.jetbrains.kotlin</groupId>    <artifactId>kotlin-stdlib</artifactId></dependency>
+        <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>
+
+        <!-- services modules -->
+        <dependency><artifactId>example-service</artifactId>      <groupId>net.ms</groupId><version>${project.parent.version}</version></dependency>
+        <dependency><artifactId>bulk-indexing-service</artifactId><groupId>net.ms</groupId><version>${project.parent.version}</version></dependency>
+
+
+        <!-- test: -->
+        <dependency><groupId>org.jetbrains.kotlin</groupId><artifactId>kotlin-test-junit</artifactId><scope>test</scope></dependency>
+        <dependency><groupId>junit</groupId>               <artifactId>junit</artifactId>            <scope>test</scope></dependency>
+
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+                <version>${kotlin.version}</version>
+                <executions>
+                    <execution>
+                        <id>compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>test-compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
