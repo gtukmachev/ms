@@ -18,10 +18,15 @@ class BulkIndexingController {
     }
 
     @RequestMapping(path = arrayOf("/bulk-indexing/start"), method = arrayOf(RequestMethod.POST))
-    fun start(@RequestBody response: CheckResponse): CheckResult {
-        return CheckResult("ok", listOf(
-                Msg(l = "inf", obj = "All checks passed", msg = "ready to start.")
-        ))
+    fun start(@RequestBody response: CheckResponse): Map<Any, Any> {
+        return mapOf(
+                "status" to "ok",
+                "messages" to mapOf(
+                        "l" to "inf",
+                        "obj" to "All checks passed",
+                        "msg" to "ready to start."
+                )
+        )
     }
 
 }

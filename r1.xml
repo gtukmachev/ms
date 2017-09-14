@@ -2,9 +2,9 @@
   <option name="biscuits">
     <list />
   </option>
-  <option name="httpMethod" value="GET" />
-  <option name="urlBase" value="http://localhost:8080" />
-  <option name="urlPath" value="/example/hello" />
+  <option name="httpMethod" value="POST" />
+  <option name="urlBase" value="https://oewhljebs2.execute-api.us-west-1.amazonaws.com" />
+  <option name="urlPath" value="/dev/bulk-indexing/check" />
   <option name="headers">
     <list>
       <KeyValuePair>
@@ -15,15 +15,19 @@
         <option name="key" value="Cache-Control" />
         <option name="value" value="no-cache" />
       </KeyValuePair>
+      <KeyValuePair>
+        <option name="key" value="Content-Type" />
+        <option name="value" value="application/json" />
+      </KeyValuePair>
     </list>
   </option>
   <option name="parameters">
     <list />
   </option>
   <option name="parametersEnabled" value="true" />
-  <option name="haveTextToSend" value="false" />
+  <option name="haveTextToSend" value="true" />
   <option name="haveFileToSend" value="false" />
   <option name="isFileUpload" value="false" />
-  <option name="textToSend" value="{ &quot;s3BucketURL&quot; : &quot;s3://aws&quot;}" />
+  <option name="textToSend" value="{&quot;s3BucketURL&quot;:&quot;s3://aws&quot;}" />
   <option name="filesToSend" value="" />
 </RestClientRequest>

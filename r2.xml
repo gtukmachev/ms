@@ -3,8 +3,8 @@
     <list />
   </option>
   <option name="httpMethod" value="POST" />
-  <option name="urlBase" value="http://localhost:8080" />
-  <option name="urlPath" value="/bulk-indexing/check" />
+  <option name="urlBase" value="https://oewhljebs2.execute-api.us-west-1.amazonaws.com" />
+  <option name="urlPath" value="/dev/bulk-indexing/start" />
   <option name="headers">
     <list>
       <KeyValuePair>
