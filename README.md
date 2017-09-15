@@ -11,11 +11,11 @@ $ cd ms-services/example-service/
 ```
 
 Open and edit the file 'deploy.sh' within the folder (PROJECT_ROOT/ms-services/example-service/).
-Ypu have to define several values in top of the file:
+You have to define several values in top of the file:
 
 ```
 # define your credential using profile or any other approaches
-# you can comment next line and configure WS cli using command 'aws configure'
+# you can comment next line and configure AWS cli using command 'aws configure'
 export AWS_PROFILE=<YOUR-AWS-CREDENTIALS-PROFILE>
 
 # define your AWS region (you can use any region with serverless architecture support)
@@ -28,7 +28,7 @@ export S3_DEPLOY_BUCKET=<YOUR-S3-BUCKET-NAME>
 export CLOUD_FORMATION_STACK_NAME=ExampleServiceStack
 ```
 
-Then - run this script:
+Than - run this script:
 ```
 PROJECT_ROOT/ms-services/example-service/$ ./deploy.sh
 ```
@@ -40,4 +40,4 @@ Find in output of the script strings:
 "OutputValue": "https://**********.execute-api.us-west-1.amazonaws.com/Prod/foo/list"
 "OutputValue": "https://**********.execute-api.us-west-1.amazonaws.com/Prod/bar/info"
 ```
-this is your URL for call deployed functions  
+these are your URLs for calling deployed functions  
