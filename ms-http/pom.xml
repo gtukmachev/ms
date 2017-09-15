@@ -26,7 +26,6 @@
 
         <!-- services modules -->
         <dependency><artifactId>example-service</artifactId>      <groupId>net.ms</groupId><version>${project.parent.version}</version></dependency>
-        <dependency><artifactId>bulk-indexing-service</artifactId><groupId>net.ms</groupId><version>${project.parent.version}</version></dependency>
 
 
         <!-- test: -->

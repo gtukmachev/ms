@@ -25,7 +25,6 @@
 
     <modules>
         <module>example-service</module>
-        <module>bulk-indexing-service</module>
     </modules>
 
     <dependencies>
